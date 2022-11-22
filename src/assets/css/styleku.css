@@ -1,0 +1,53 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.gradient-custom-2 {
+  background: #6c63ff;
+}
+
+.btn-login {
+  background: #6c63ff;
+  width: 100px;
+  height: 35px;
+  border: none;
+  border-radius: 20px;
+  color: white;
+}
+
+.btn-login:hover {
+  background: #3f3d56;
+}
+
+.btn-create {
+  background: #6c63ff;
+  color: white;
+  border-radius: 20px;
+  border: none;
+  width: 100px;
+  height: 35px;
+}
+
+.btn-create:hover {
+  background: #3f3d56;
+}
+
+@media (max-width: 599px) {
+  .gradient-custom-2 {
+    visibility: hidden;
+  }
+}
+
+@media (min-width: 768px) {
+  .gradient-form {
+    height: 100vh !important;
+  }
+}
+@media (min-width: 769px) {
+  .gradient-custom-2 {
+    border-top-right-radius: 0.3rem;
+    border-bottom-right-radius: 0.3rem;
+  }
+}
