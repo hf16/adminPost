@@ -1,42 +1,50 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { forgot } from "../redux/actions/auth";
+import Swal from "sweetalert2";
 import "../assets/css/styleku.css";
 import Logo from "../assets/img/undraw_Aircraft_re_m05i.png";
 import Banner from "../assets/img/undraw_connected_world_wuay.svg";
-import Swal from "sweetalert2";
-import { login } from "../redux/actions/auth";
 
-function Login() {
+export default function Reset() {
   const navigate = useNavigate();
-
   const [errors, setErrors] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [form, setForm] = useState({
     email: "",
-    password: "",
   });
   useEffect(() => {
-    document.title = `${process.env.REACT_APP_APP_NAME} - Login`;
+    document.title = `${process.env.REACT_APP_APP_NAME} - Forgot Password`;
     window.scrollTo(0, 0);
   }, []);
-
   const onSubmitted = (e) => {
     e.preventDefault();
     setErrors([]);
     setIsLoading(true);
-    login(form, setErrors).then((res) => {
-      if (res === true) {
-        Swal.fire({
-          title: "Success",
-          text: "Login Success",
-          icon: "success",
+    Swal.fire({
+      title: "Are you sure?",
+      text: `that ${form.email} is your account?`,
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: `yes, that's right!`,
+    }).then((result) => {
+      if (result.isConfirmed) {
+        forgot(form, setErrors).then((res) => {
+          if (res === true) {
+            Swal.fire({
+              title: "Success",
+              text: "you success to reset password, now check your email to reset your password",
+              icon: "success",
+            });
+            return navigate("/login");
+          }
         });
-        return navigate("/");
       }
     });
     setIsLoading(false);
   };
-
   return (
     <>
       <section class="h-100 gradient-form">
@@ -65,41 +73,18 @@ function Login() {
                             }
                           />
                         </div>
-
-                        <div class="form-outline mb-4">
-                          <input
-                            type="password"
-                            id="password"
-                            name="password"
-                            class="form-control input-login"
-                            placeholder="Password"
-                            onChange={(e) =>
-                              setForm({ ...form, password: e.target.value })
-                            }
-                          />
-
-                          {errors.length > 0 && (
-                            <div
-                              className="alert alert-danger mx-0"
-                              style={{ maxWidth: "350px", marginLeft: "10px" }}
-                            >
-                              <ul className="m-0">
-                                {errors.map((error, index) => (
-                                  <li key={index}>{error.msg}</li>
-                                ))}
-                              </ul>
-                            </div>
-                          )}
-                        </div>
-                        <div className="mt-2 d-flex justify-content-end text-forgot">
-                          <p
-                            onClick={() => {
-                              navigate("/reset");
-                            }}
+                        {errors.length > 0 && (
+                          <div
+                            className="alert alert-danger mx-0"
+                            style={{ maxWidth: "350px", marginLeft: "10px" }}
                           >
-                            Forgot Password
-                          </p>
-                        </div>
+                            <ul className="m-0">
+                              {errors.map((error, index) => (
+                                <li key={index}>{error.msg}</li>
+                              ))}
+                            </ul>
+                          </div>
+                        )}
                         <div class="text-center pt-1 mb-5 pb-1 ">
                           {isLoading ? (
                             <button
@@ -116,21 +101,9 @@ function Login() {
                             </button>
                           ) : (
                             <button type="submit" className="btn-login">
-                              Sign In
+                              Send
                             </button>
                           )}
-                        </div>
-                        <div class="d-flex align-items-center justify-content-center pb-4">
-                          <p class="mb-0 me-2">Don't have an account?</p>
-                          <button
-                            type="button"
-                            class="btn-create"
-                            onClick={() => {
-                              navigate("/register");
-                            }}
-                          >
-                            Create new
-                          </button>
                         </div>
                       </form>
                     </div>
@@ -152,5 +125,3 @@ function Login() {
     </>
   );
 }
-
-export default Login;
