@@ -1,11 +1,40 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Logo from "../assets/img/undraw_Aircraft_re_m05i.png";
 import Banner from "../assets/img/undraw_connected_world_wuay.svg";
 import "../assets/css/styleku.css";
 import { useNavigate } from "react-router-dom";
+import { register } from "../redux/actions/auth";
+import Swal from "sweetalert2";
 
 function Register() {
   const navigate = useNavigate();
+  const [errors, setErrors] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    password: "",
+  });
+  useEffect(() => {
+    document.title = `${process.env.REACT_APP_APP_NAME} - Register`;
+    window.scrollTo(0, 0);
+  }, []);
+  const onSubmitted = (e) => {
+    e.preventDefault();
+    setErrors([]);
+    setIsLoading(true);
+    register(form, setErrors).then((res) => {
+      if (res === true) {
+        Swal.fire({
+          title: "Success",
+          text: "you success to register, now check your email to acctivate your account",
+          icon: "success",
+        });
+        return navigate("/login");
+      }
+    });
+    setIsLoading(false);
+  };
 
   return (
     <>
@@ -22,7 +51,7 @@ function Register() {
                         <h4 class="mt-1 mb-5 pb-1">Si Terbang</h4>
                       </div>
 
-                      <form>
+                      <form onSubmit={(e) => onSubmitted(e)}>
                         <div class="form-outline mb-4">
                           <input
                             type="text"
@@ -30,6 +59,9 @@ function Register() {
                             name="name"
                             class="form-control input-login"
                             placeholder="Name"
+                            onChange={(e) =>
+                              setForm({ ...form, name: e.target.value })
+                            }
                           />
                         </div>
                         <div class="form-outline mb-4">
@@ -39,6 +71,9 @@ function Register() {
                             name="email"
                             class="form-control input-login"
                             placeholder="Email"
+                            onChange={(e) =>
+                              setForm({ ...form, email: e.target.value })
+                            }
                           />
                         </div>
 
@@ -49,12 +84,42 @@ function Register() {
                             name="password"
                             class="form-control input-login"
                             placeholder="Password"
+                            onChange={(e) =>
+                              setForm({ ...form, password: e.target.value })
+                            }
                           />
                         </div>
+                        {errors.length > 0 && (
+                          <div
+                            className="alert alert-danger mx-50"
+                            style={{ maxWidth: "350px", marginLeft: "10px" }}
+                          >
+                            <ul className="m-0">
+                              {errors.map((error, index) => (
+                                <li key={index}>{error.msg}</li>
+                              ))}
+                            </ul>
+                          </div>
+                        )}
                         <div class="text-center pt-1 mb-5 pb-1 ">
-                          <button class="btn-login" type="button">
-                            Register
-                          </button>
+                          {isLoading ? (
+                            <button
+                              className="btn btn-success btn-lg ms-2"
+                              type="button"
+                              disabled
+                            >
+                              <span
+                                className="spinner-border spinner-border-sm"
+                                role="status"
+                                aria-hidden="true"
+                              ></span>{" "}
+                              Loading...
+                            </button>
+                          ) : (
+                            <button type="submit" className="btn-login">
+                              Register
+                            </button>
+                          )}
                         </div>
                         <div class="d-flex align-items-center justify-content-center pb-4">
                           <p class="mb-0 me-2">Have already an account?</p>
