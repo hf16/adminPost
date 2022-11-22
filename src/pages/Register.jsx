@@ -1,10 +1,10 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
-import "../assets/css/styleku.css";
 import Logo from "../assets/img/undraw_Aircraft_re_m05i.png";
 import Banner from "../assets/img/undraw_connected_world_wuay.svg";
+import "../assets/css/styleku.css";
+import { useNavigate } from "react-router-dom";
 
-function Login() {
+function Register() {
   const navigate = useNavigate();
 
   return (
@@ -25,6 +25,15 @@ function Login() {
                       <form>
                         <div class="form-outline mb-4">
                           <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            class="form-control input-login"
+                            placeholder="Name"
+                          />
+                        </div>
+                        <div class="form-outline mb-4">
+                          <input
                             type="email"
                             id="email"
                             name="email"
@@ -42,24 +51,21 @@ function Login() {
                             placeholder="Password"
                           />
                         </div>
-                        <div className="mt-2 d-flex justify-content-end text-forgot">
-                          <p>Forgot Password</p>
-                        </div>
                         <div class="text-center pt-1 mb-5 pb-1 ">
                           <button class="btn-login" type="button">
-                            Log in
+                            Register
                           </button>
                         </div>
                         <div class="d-flex align-items-center justify-content-center pb-4">
-                          <p class="mb-0 me-2">Don't have an account?</p>
+                          <p class="mb-0 me-2">Have already an account?</p>
                           <button
                             type="button"
                             class="btn-create"
                             onClick={() => {
-                              navigate("/register");
+                              navigate("/login");
                             }}
                           >
-                            Create new
+                            Sign In
                           </button>
                         </div>
                       </form>
@@ -83,4 +89,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default Register;
