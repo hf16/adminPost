@@ -10,9 +10,9 @@ function Login() {
         <div class="container py-5 h-100">
           <div class="row d-flex justify-content-center align-items-center h-100">
             <div class="col-xl-10">
-              <div class="card rounded-3 text-black">
+              <div class="card rounded-3 text-black card-phone-xs">
                 <div class="row g-0">
-                  <div class="col-lg-6">
+                  <div class="col-lg-6 card-phone-xs">
                     <div class="card-body p-md-5 mx-md-4">
                       <div class="text-center">
                         <img src={Logo} width="185" alt="logo" />
@@ -21,29 +21,27 @@ function Login() {
 
                       <form>
                         <div class="form-outline mb-4">
-                          <label class="form-label" for="form2Example11">
-                            Username
-                          </label>
                           <input
                             type="email"
-                            id="form2Example11"
-                            class="form-control"
-                            placeholder="Phone number or email address"
+                            id="email"
+                            name="email"
+                            class="form-control input-login"
+                            placeholder="Email"
                           />
                         </div>
 
                         <div class="form-outline mb-4">
-                          <label class="form-label" for="form2Example22">
-                            Password
-                          </label>
                           <input
                             type="password"
-                            id="form2Example22"
-                            class="form-control"
-                            placeholder="Enter Your Password"
+                            id="password"
+                            name="password"
+                            class="form-control input-login"
+                            placeholder="Password"
                           />
                         </div>
-
+                        <div className="mt-2 d-flex justify-content-end text-forgot">
+                          <p>Forgot Password</p>
+                        </div>
                         <div class="text-center pt-1 mb-5 pb-1 ">
                           <button class="btn-login" type="button">
                             Log in
@@ -58,7 +56,7 @@ function Login() {
                       </form>
                     </div>
                   </div>
-                  <div class="col-lg-6 d-flex align-items-center gradient-custom-2 ">
+                  <div class="col-lg-6 d-flex align-items-center gradient-custom-2 card-phone">
                     <div class="text-white px-3 py-4 p-md-5 mx-md-4">
                       <h4>Ramah Di kantong, Memudahkan anda</h4>
                       <p>
