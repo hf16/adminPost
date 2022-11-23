@@ -5,6 +5,12 @@
 }
 
 /* control page login */
+.real h4 {
+  font-size: 15px;
+  text-align: center;
+  font-style: italic;
+  font-family: "Monserat";
+}
 
 .gradient-custom-2 {
   background: #6c63ff;
@@ -46,6 +52,19 @@
   font-weight: 100;
   text-decoration: underline;
   cursor: pointer;
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .gradient-custom-2 {
+    display: none;
+    opacity: 0;
+  }
+  .card-phone {
+    height: 0;
+  }
+  .card-phone-xs {
+    width: 100%;
+  }
 }
 
 @media (max-width: 599px) {
