@@ -48,7 +48,7 @@ function Register() {
                     <div class="card-body p-md-5 mx-md-4">
                       <div class="text-center">
                         <img src={Logo} width="185" alt="logo" />
-                        <h4 class="mt-1 mb-5 pb-1">Si Terbang</h4>
+                        <h4 class="mt-1 mb-5 pb-1">SiTerbang</h4>
                       </div>
 
                       <form onSubmit={(e) => onSubmitted(e)}>
@@ -137,7 +137,7 @@ function Register() {
                     </div>
                   </div>
                   <div class="col-lg-6 d-flex align-items-center gradient-custom-2 card-phone">
-                    <div class="text-white px-3 py-4 p-md-5 mx-md-4">
+                    <div class="text-white px-3 py-4 p-md-5 mx-md-4 real">
                       <h4>Ramah Di kantong, Memudahkan anda</h4>
                       <p>
                         <img src={Banner} alt="" width={350} />
