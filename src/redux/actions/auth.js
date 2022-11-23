@@ -20,7 +20,6 @@ export const login = async (data, setErrors) => {
     } else {
       setErrors([{ msg: error.message }]);
     }
-
     return false;
   }
 };
