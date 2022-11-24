@@ -7,8 +7,8 @@ export const login = async (data, setErrors) => {
       data
     );
 
-    localStorage.setItem("token", res.data.token.jwt);
-    localStorage.setItem("id", res.data.token.id);
+    localStorage.setItem("token", res.data.data.token);
+    localStorage.setItem("email", res.data.data.email);
     return true;
   } catch (error) {
     if (error.response) {
