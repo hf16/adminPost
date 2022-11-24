@@ -79,7 +79,7 @@ function Register() {
 
                         <div class="form-outline mb-4">
                           <input
-                            type="password"
+                            type="teks"
                             id="password"
                             name="password"
                             class="form-control input-login"
@@ -89,6 +89,20 @@ function Register() {
                             }
                           />
                         </div>
+
+                        <div class="form-outline mb-4">
+                          <input
+                            type="teks"
+                            id="confirm_password"
+                            name="confirm_password"
+                            class="form-control input-login"
+                            placeholder="confirm_password"
+                            onChange={(e) =>
+                              setForm({ ...form, confirm_password: e.target.value })
+                            }
+                          />
+                        </div>
+
                         {errors.length > 0 && (
                           <div
                             className="alert alert-danger mx-50"
