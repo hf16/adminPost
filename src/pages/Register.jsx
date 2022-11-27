@@ -48,7 +48,7 @@ function Register() {
                     <div class="card-body p-md-5 mx-md-4">
                       <div class="text-center">
                         <img src={Logo} width="185" alt="logo" />
-                        <h4 class="mt-1 mb-5 pb-1">SiTerbang</h4>
+                        <h4 class="mt-1 mb-5 pb-1 siTerbang">SiTerbang</h4>
                       </div>
 
                       <form onSubmit={(e) => onSubmitted(e)}>
