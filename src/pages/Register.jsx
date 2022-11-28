@@ -79,7 +79,7 @@ function Register() {
 
                         <div class="form-outline mb-4">
                           <input
-                            type="teks"
+                            type="password"
                             id="password"
                             name="password"
                             class="form-control input-login"
@@ -92,7 +92,7 @@ function Register() {
 
                         <div class="form-outline mb-4">
                           <input
-                            type="teks"
+                            type="password"
                             id="confirm_password"
                             name="confirm_password"
                             class="form-control input-login"
