@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "../assets/css/styleku.css";
 import Logo from "../assets/img/undraw_Aircraft_re_m05i.png";
 import Banner from "../assets/img/undraw_connected_world_wuay.svg";
-import Swal from "sweetalert2";
+// import Swal from "sweetalert2";
 import { login } from "../redux/actions/auth";
 
 function Login() {
@@ -26,11 +26,6 @@ function Login() {
     setIsLoading(true);
     login(form, setErrors).then((res) => {
       if (res === true) {
-        Swal.fire({
-          title: "Success",
-          text: "Login Success",
-          icon: "success",
-        });
         return navigate("/");
       }
     });
