@@ -26,8 +26,8 @@ function Register() {
     register(form, setErrors).then((res) => {
       if (res === true) {
         Swal.fire({
-          title: "Success",
-          text: "you success to register, now check your email to acctivate your account",
+          title: "Register Success",
+          text: "Please check your email to activate your account",
           icon: "success",
         });
         return navigate("/login");
