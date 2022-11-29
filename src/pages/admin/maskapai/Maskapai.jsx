@@ -1,8 +1,9 @@
 import React from "react";
-import LogoAdmin from "../../assets/admin-img/undraw_metrics_re_6g90.svg";
-import "../../assets/css/styleku.css";
-import Logo from "../../assets/admin-img/undraw_aircraft_re_m05i.svg";
+import LogoAdmin from "../../../assets/admin-img/undraw_metrics_re_6g90.svg";
+import "../../../assets/css/styleku.css";
+import Logo from "../../../assets/admin-img/undraw_aircraft_re_m05i.svg";
 import { useNavigate } from "react-router-dom";
+import TableMaskapai from "../maskapai/Ant";
 
 function Maskapai() {
   const navigate = useNavigate();
@@ -98,6 +99,7 @@ function Maskapai() {
           <div className="dashboard-content px-3 pt-4 my-content">
             <h2 className="fs-5">Maskapai</h2>
             {/* content Maskapai */}
+            <TableMaskapai />
           </div>
         </div>
       </div>
