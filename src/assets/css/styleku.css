@@ -21,10 +21,9 @@
   border-radius: 10px;
 }
 
-.siTerbang{
-  color:#6c63ff;
+.siTerbang {
+  color: #6c63ff;
 }
-
 
 .btn-login {
   background: #6c63ff;
@@ -59,6 +58,69 @@
   cursor: pointer;
 }
 
+/* control admin page style */
+
+#side_nav {
+  background: #6c63ff;
+  min-width: 250px;
+  /* max-height: 250px; */
+  transition: all 0.3s ease-in-out;
+}
+
+.content {
+  min-height: 100vh;
+  width: 100%;
+}
+
+.bear {
+  min-width: 30px;
+  text-align: center;
+}
+
+.sidebar li {
+  color: #eee;
+  cursor: pointer;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 50px;
+  font-family: sans-serif;
+  transition: all 0.8s ease-in-out;
+}
+
+.beruang:hover {
+  background: white;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  color: black;
+}
+
+.btn-logout {
+  position: absolute;
+  display: grid;
+  width: 200px;
+  height: 20px;
+  margin-bottom: 2px;
+  bottom: 0;
+  border: none;
+  background: #ff1e1e;
+  color: white;
+  font-size: 15px;
+  border-radius: 8px;
+}
+
+.btn-logout:hover {
+  background: #d40707;
+}
+
+.control-terbang {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: 50%;
+  margin-right: 50%;
+}
+
 @media (min-width: 768px) and (max-width: 991.98px) {
   .gradient-custom-2 {
     display: none;
@@ -69,6 +131,10 @@
   }
   .card-phone-xs {
     width: 100%;
+  }
+
+  #side_nav {
+    margin-left: -250px;
   }
 }
 
@@ -82,6 +148,15 @@
   }
   .card-phone-xs {
     width: 100%;
+  }
+  #side_nav {
+    margin-left: -250px;
+    position: fixed;
+    min-height: 100vh;
+    z-index: 1;
+  }
+  #side_nav.active {
+    margin-left: 0;
   }
 }
 
