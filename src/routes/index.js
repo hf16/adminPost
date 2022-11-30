@@ -7,7 +7,7 @@ import Register from "../pages/Register";
 import Reset from "../pages/Reset";
 import Dahsboard from "../pages/admin/Dashboard";
 import Maskapai from "../pages/admin/maskapai/Maskapai";
-import Ant from "../pages/admin/maskapai/Ant";
+import Airport from "../pages/admin/airport/Airport";
 
 function PublicRoute({ children }) {
   const token = localStorage.getItem("token");
@@ -63,7 +63,7 @@ export default function router() {
         {/* control routes all page admin */}
         <Route path="/dashboard" element={<Dahsboard />} />
         <Route path="/maskapai" element={<Maskapai />} />
-        <Route path="/ant" element={<Ant />} />
+        <Route path="/airport" element={<Airport />} />
       </Routes>
     </BrowserRouter>
   );

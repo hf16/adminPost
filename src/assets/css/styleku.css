@@ -58,6 +58,12 @@
   cursor: pointer;
 }
 
+.err {
+  color: #842029;
+  margin-top: 5px;
+  margin-left: 5px;
+}
+
 /* control admin page style */
 
 #side_nav {
@@ -94,25 +100,6 @@
   margin-bottom: 8px;
   color: black;
 }
-
-.btn-logout {
-  position: absolute;
-  display: grid;
-  width: 200px;
-  height: 20px;
-  margin-bottom: 2px;
-  bottom: 0;
-  border: none;
-  background: #ff1e1e;
-  color: white;
-  font-size: 15px;
-  border-radius: 8px;
-}
-
-.btn-logout:hover {
-  background: #d40707;
-}
-
 .control-terbang {
   display: flex;
   flex-direction: row;
@@ -157,6 +144,24 @@
   }
   #side_nav.active {
     margin-left: 0;
+  }
+  .phone {
+    font-family: sans-serif;
+    font-style: normal;
+    text-align: justify;
+    width: 50px;
+    line-height: 20px;
+    margin-top: 12px;
+  }
+  .yui {
+    color: #000;
+    transition: all 0.5s ease-in-out;
+  }
+  .yui:hover {
+    background: #6c63ff;
+    width: auto;
+    border-radius: 8px;
+    color: white;
   }
 }
 

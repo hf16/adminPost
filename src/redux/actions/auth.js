@@ -11,16 +11,7 @@ export const login = async (data, setErrors) => {
     localStorage.setItem("email", res.data.data.email);
     return true;
   } catch (error) {
-    if (error.response) {
-      if (Array.isArray(error.response.data.error)) {
-        setErrors(error.response.data.error);
-      } else {
-        setErrors([{ msg: error.response.data.error }]);
-      }
-    } else {
-      setErrors([{ msg: error.message }]);
-    }
-    return false;
+    setErrors(error.response.data.message);
   }
 };
 
@@ -29,17 +20,7 @@ export const register = async (data, setErrors) => {
     await axios.post(`${process.env.REACT_APP_API_URL}/auth/register`, data);
     return true;
   } catch (error) {
-    if (error.response) {
-      if (Array.isArray(error.response.data.error)) {
-        setErrors(error.response.data.error);
-      } else {
-        setErrors([{ msg: error.response.data.error }]);
-      }
-    } else {
-      setErrors([{ msg: error.message }]);
-    }
-
-    return false;
+    setErrors(error.response.data.message);
   }
 };
 export const forgot = async (data, setErrors) => {
@@ -69,16 +50,18 @@ export const reset = async (token, data, setErrors) => {
     );
     return true;
   } catch (error) {
-    if (error.response) {
-      if (Array.isArray(error.response.data.error)) {
-        setErrors(error.response.data.error);
-      } else {
-        setErrors([{ msg: error.response.data.error }]);
-      }
-    } else {
-      setErrors([{ msg: error.message }]);
-    }
+    // if (error.response) {
+    //   if (Array.isArray(error.response.data.error)) {
+    //     setErrors(error.response.data.error);
+    //   } else {
+    //     setErrors([{ msg: error.response.data.error }]);
+    //   }
+    // } else {
+    //   setErrors([{ msg: error.message }]);
+    // }
 
-    return false;
+    // return false;
+
+    throw error;
   }
 };

@@ -1,13 +1,12 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import LogoAdmin from "../../../assets/admin-img/undraw_metrics_re_6g90.svg";
 import "../../../assets/css/styleku.css";
 import Logo from "../../../assets/admin-img/undraw_aircraft_re_m05i.svg";
-import { useNavigate } from "react-router-dom";
-import TableMaskapai from "../maskapai/Ant";
+import TableAir from "./Table";
 
-function Maskapai() {
+function Airport() {
   const navigate = useNavigate();
-
   return (
     <React.Fragment>
       <div className="main-container d-flex">
@@ -41,13 +40,7 @@ function Maskapai() {
             >
               <i className="fal fa-plane-departure bear"></i> Maskapai
             </li>
-            <li
-              className="beruang px-3 py-2"
-              onClick={(e) => {
-                e.preventDefault();
-                navigate("/airport");
-              }}
-            >
+            <li className="beruang px-3 py-2">
               <i className="fal fa-solar-panel bear"></i> Airport
             </li>
           </ul>
@@ -104,9 +97,9 @@ function Maskapai() {
             </div>
           </nav>
           <div className="dashboard-content px-3 pt-4 my-content">
-            <h2 className="fs-5">Maskapai</h2>
+            <h2 className="fs-5">Airport</h2>
             {/* content Maskapai */}
-            <TableMaskapai />
+            <TableAir />
           </div>
         </div>
       </div>
@@ -114,4 +107,4 @@ function Maskapai() {
   );
 }
 
-export default Maskapai;
+export default Airport;

@@ -43,11 +43,6 @@ function Dahsboard() {
             <li className="beruang px-3 py-2">
               <i className="fal fa-solar-panel bear"></i> Airport
             </li>
-            <div className="container-fluid">
-              <button className="btn-logout">
-                <i className="fal fa-sign-out-alt"> Logout </i>
-              </button>
-            </div>
           </ul>
         </div>
         <div className="content">
@@ -73,11 +68,15 @@ function Dahsboard() {
                 <i className="fal fa-bars"></i>
               </button>
               <div className="collapse navbar-collapse" id="navbarNav">
-                <ul className="navbar-nav ms-auto d-md-none">
-                  <li className="nav-item nav-link">Dashboard</li>
-                  <li className="nav-item nav-link">Admin</li>
+                <ul className="navbar-nav ms-auto">
+                  <li className="nav-item nav-link  phone d-md-none yui">
+                    Dashboard
+                  </li>
+                  <li className="nav-item nav-link phone d-md-none yui">
+                    Admin
+                  </li>
                   <li
-                    className="nav-item nav-link"
+                    className="nav-item nav-link phone d-md-none yui"
                     onClick={(e) => {
                       e.preventDefault();
                       navigate("/maskapai");
@@ -85,10 +84,12 @@ function Dahsboard() {
                   >
                     Maskapai
                   </li>
-                  <li className="nav-item nav-link">Airport</li>
-                  <li className="nav-item nav-link">
-                    <button className="btn btn-dark">
-                      <i className="fal fa-sign-out-alt"> Logout </i>
+                  <li className="nav-item nav-link phone d-md-none yui">
+                    Airport
+                  </li>
+                  <li className="nav-item nav-link phone">
+                    <button className="btn btn-danger btn-sm">
+                      <i className="fal fa-power-off text-light"></i>
                     </button>
                   </li>
                 </ul>
