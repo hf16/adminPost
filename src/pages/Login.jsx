@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import "../assets/css/styleku.css";
 import Logo from "../assets/img/undraw_Aircraft_re_m05i.png";
 import Banner from "../assets/img/undraw_connected_world_wuay.svg";
-// import Swal from "sweetalert2";
 import { login } from "../redux/actions/auth";
 
 function Login() {
@@ -25,6 +24,7 @@ function Login() {
     setErrors([]);
     setIsLoading(true);
     login(form, setErrors).then((res) => {
+      console.log(res);
       if (res === true) {
         return navigate("/");
       }
@@ -46,7 +46,6 @@ function Login() {
                         <img src={Logo} width="185" alt="logo" />
                         <h4 class="mt-1 mb-5 pb-1 siTerbang">SiTerbang</h4>
                       </div>
-
                       <form onSubmit={(e) => onSubmitted(e)}>
                         <div class="form-outline mb-4">
                           <input
@@ -72,19 +71,20 @@ function Login() {
                               setForm({ ...form, password: e.target.value })
                             }
                           />
-
-                          {errors.length > 0 && (
+                          <h6 className="err">{errors}</h6>
+                          {/* {errors.length > 0 && (
                             <div
                               className="alert alert-danger mx-0"
                               style={{ maxWidth: "350px", marginLeft: "10px" }}
                             >
                               <ul className="m-0">
-                                {errors.map((error, index) => (
-                                  <li key={index}>{error.msg}</li>
-                                ))}
+                                {errors &&
+                                  errors.map((error, index) => (
+                                    <li key={index}>{error.message}</li>
+                                  ))}
                               </ul>
                             </div>
-                          )}
+                          )} */}
                         </div>
                         <div className="mt-2 d-flex justify-content-end text-forgot">
                           <p

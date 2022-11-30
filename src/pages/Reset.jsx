@@ -14,7 +14,7 @@ export default function Reset() {
     email: "",
   });
   useEffect(() => {
-    document.title = `${process.env.REACT_APP_APP_NAME} - Forgot Password`;
+    document.title = `Forgot Password`;
     window.scrollTo(0, 0);
   }, []);
   const onSubmitted = (e) => {
