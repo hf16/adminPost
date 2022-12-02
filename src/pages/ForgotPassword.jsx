@@ -19,6 +19,7 @@ export default function ForgotPassword() {
     window.scrollTo(0, 0);
   }, []);
   const { token } = useParams();
+
   const onSubmitted = (e) => {
     e.preventDefault();
     setErrors([]);
@@ -33,7 +34,9 @@ export default function ForgotPassword() {
           });
           return navigate("/");
         }
+        console.log(res)
       });
+      
     } else {
       Swal.fire({
         title: "Oops...",

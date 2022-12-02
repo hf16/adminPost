@@ -8,6 +8,17 @@ import Reset from "../pages/Reset";
 import Dahsboard from "../pages/admin/Dashboard";
 import Maskapai from "../pages/admin/maskapai/Maskapai";
 import Airport from "../pages/admin/airport/Airport";
+import LoginAdmin from "../pages/LoginAdmin";
+
+
+function PrivateRoute({ children }) {
+  const token = localStorage.getItem("token");
+
+  if (token) {
+    return children;
+  }
+  return <Navigate to="/loginAdmin" />;
+}
 
 function PublicRoute({ children }) {
   const token = localStorage.getItem("token");
@@ -17,6 +28,10 @@ function PublicRoute({ children }) {
   }
   return <Navigate to="/" />;
 }
+
+
+
+
 
 export default function router() {
   return (
@@ -51,8 +66,9 @@ export default function router() {
             </PublicRoute>
           }
         />
+
         <Route
-          path="/auth/reset/:token"
+          path="/auth/reset-password/:token"
           element={
             <PublicRoute>
               <ForgotPassword />
@@ -61,9 +77,38 @@ export default function router() {
         />
 
         {/* control routes all page admin */}
-        <Route path="/dashboard" element={<Dahsboard />} />
-        <Route path="/maskapai" element={<Maskapai />} />
-        <Route path="/airport" element={<Airport />} />
+        <Route path="/dashboard" element={
+          <PrivateRoute>
+            <Dahsboard />
+          </PrivateRoute>
+        } />
+
+        <Route path="/maskapai" element={
+          <PrivateRoute>
+            <Maskapai />
+          </PrivateRoute>
+        }     
+        />
+
+        <Route path="/airport" element={
+          <PrivateRoute>
+            <Airport />
+          </PrivateRoute>    
+        } 
+        />
+
+        <Route
+          path="/loginAdmin"
+          element={
+            <PublicRoute>
+              <LoginAdmin />
+            </PublicRoute>
+          }
+        />
+
+
+
+
       </Routes>
     </BrowserRouter>
   );

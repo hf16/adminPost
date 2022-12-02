@@ -25,27 +25,21 @@ export const register = async (data, setErrors) => {
 };
 export const forgot = async (data, setErrors) => {
   try {
-    await axios.put(`${process.env.REACT_APP_API_URL}/auth/forgot`, data);
+    await axios.post(`${process.env.REACT_APP_API_URL}/auth/forgot-password`, data);
     return true;
   } catch (error) {
-    if (error.response) {
-      if (Array.isArray(error.response.data.error)) {
-        setErrors(error.response.data.error);
-      } else {
-        setErrors([{ msg: error.response.data.error }]);
-      }
-    } else {
-      setErrors([{ msg: error.message }]);
-    }
+    console.log(data)
+    
 
-    return false;
+    throw error;
   }
 };
 
+
 export const reset = async (token, data, setErrors) => {
   try {
-    await axios.put(
-      `${process.env.REACT_APP_API_URL}/auth/reset/${token}`,
+    await axios.post(
+      `${process.env.REACT_APP_API_URL}/auth/reset-password/${token}`,
       data
     );
     return true;

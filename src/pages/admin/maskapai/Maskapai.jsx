@@ -1,11 +1,34 @@
-import React from "react";
 import LogoAdmin from "../../../assets/admin-img/undraw_metrics_re_6g90.svg";
 import "../../../assets/css/styleku.css";
 import Logo from "../../../assets/admin-img/undraw_aircraft_re_m05i.svg";
-import { useNavigate } from "react-router-dom";
 import TableMaskapai from "../maskapai/Ant";
 
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
+import {getListAirline} from '../../../redux/actions/airline'
+
+// // import CardList from '../components/ListCard'
+// import {getListAirline, deleteAirline, suspend} from '../redux/actions/airline'
+// import Swal from 'sweetalert2'
+// import Navbar from '../components/Navbar'
+
 function Maskapai() {
+  const dispatch = useDispatch()
+  
+  const airline = useSelector((state) => {
+    return state.listAirline
+  })
+
+  useEffect(() => {
+    dispatch(getListAirline())
+    document.title = `${process.env.REACT_APP_APP_NAME} | Airline`
+    window.scrollTo(0, 0)
+  }, [dispatch])
+
+  
+
+
   const navigate = useNavigate();
 
   return (
