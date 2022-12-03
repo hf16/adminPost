@@ -1,11 +1,9 @@
 import LogoAdmin from "../../../assets/admin-img/undraw_metrics_re_6g90.svg";
 import "../../../assets/css/styleku.css";
 import Logo from "../../../assets/admin-img/undraw_aircraft_re_m05i.svg";
-// import TableMaskapai from "../maskapai/Ant";
+import TableMaskapai from "../maskapai/Ant";
 import { useNavigate } from "react-router-dom";
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { getListAirline } from "../../../redux/actions/airlineActions";
+import React from "react";
 
 // // import CardList from '../components/ListCard'
 // import {getListAirline, deleteAirline, suspend} from '../redux/actions/airline'
@@ -15,15 +13,15 @@ import { getListAirline } from "../../../redux/actions/airlineActions";
 export default function Maskapai() {
   const navigate = useNavigate();
 
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
-  const airline = useSelector((state) => {
-    return state.listAirline;
-  });
-  console.log(airline);
-  useEffect(() => {
-    dispatch(getListAirline());
-  }, [dispatch]);
+  // const airline = useSelector((state) => {
+  //   return state.listAirline.data;
+  // });
+  // console.log(airline);
+  // useEffect(() => {
+  //   dispatch(getListAirline());
+  // }, [dispatch]);
 
   return (
     <React.Fragment>
@@ -122,13 +120,10 @@ export default function Maskapai() {
           </nav>
           <div className="dashboard-content px-3 pt-4 my-content">
             <h2 className="fs-5">Maskapai</h2>
-            {/* content Maskapai */}
-            {/* <TableMaskapai /> */}
+            <TableMaskapai />
           </div>
         </div>
       </div>
     </React.Fragment>
   );
 }
-
-
