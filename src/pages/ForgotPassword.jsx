@@ -12,7 +12,7 @@ export default function ForgotPassword() {
   const [isLoading, setIsLoading] = useState(false);
   const [form, setForm] = useState({
     password: "",
-    confirmPassword: "",
+    confirm_new_password: "",
   });
   useEffect(() => {
     document.title = `Reset Password`;
@@ -24,7 +24,7 @@ export default function ForgotPassword() {
     e.preventDefault();
     setErrors([]);
     setIsLoading(true);
-    if (form.password === form.confirmPassword) {
+    if (form.password === form.confirm_new_password) {
       reset(token, form, setErrors).then((res) => {
         if (res === true) {
           Swal.fire({
@@ -32,7 +32,7 @@ export default function ForgotPassword() {
             text: "you success to reset password, now you can login",
             icon: "success",
           });
-          return navigate("/");
+          return navigate("/login");
         }
         console.log(res);
       });
@@ -84,7 +84,7 @@ export default function ForgotPassword() {
                             onChange={(e) =>
                               setForm({
                                 ...form,
-                                confirmPassword: e.target.value,
+                                confirm_new_password: e.target.value,
                               })
                             }
                           />
@@ -117,7 +117,7 @@ export default function ForgotPassword() {
                             </button>
                           ) : (
                             <button type="submit" className="btn-login">
-                              Sign In
+                              Confirm
                             </button>
                           )}
                         </div>

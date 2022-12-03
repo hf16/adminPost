@@ -15,7 +15,7 @@ function Login() {
     password: "",
   });
   useEffect(() => {
-    document.title = `${process.env.REACT_APP_APP_NAME} - Login`;
+    document.title = `Login`;
     window.scrollTo(0, 0);
   }, []);
 

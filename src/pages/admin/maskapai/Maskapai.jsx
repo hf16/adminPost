@@ -1,12 +1,11 @@
 import LogoAdmin from "../../../assets/admin-img/undraw_metrics_re_6g90.svg";
 import "../../../assets/css/styleku.css";
 import Logo from "../../../assets/admin-img/undraw_aircraft_re_m05i.svg";
-import TableMaskapai from "../maskapai/Ant";
-
-import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
-import {getListAirline} from '../../../redux/actions/airline'
+// import TableMaskapai from "../maskapai/Ant";
+import { useNavigate } from "react-router-dom";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getAllAirline } from "../../../redux/actions/airlineActions";
 
 // // import CardList from '../components/ListCard'
 // import {getListAirline, deleteAirline, suspend} from '../redux/actions/airline'
@@ -14,22 +13,17 @@ import {getListAirline} from '../../../redux/actions/airline'
 // import Navbar from '../components/Navbar'
 
 function Maskapai() {
-  const dispatch = useDispatch()
-  
-  const airline = useSelector((state) => {
-    return state.listAirline
-  })
-
-  useEffect(() => {
-    dispatch(getListAirline())
-    document.title = `${process.env.REACT_APP_APP_NAME} | Airline`
-    window.scrollTo(0, 0)
-  }, [dispatch])
-
-  
-
-
   const navigate = useNavigate();
+
+  const dispatch = useDispatch();
+
+  const airline = useSelector((state) => {
+    return state;
+  });
+  console.log(airline);
+  useEffect(() => {
+    dispatch(getAllAirline());
+  }, [dispatch]);
 
   return (
     <React.Fragment>
@@ -129,7 +123,7 @@ function Maskapai() {
           <div className="dashboard-content px-3 pt-4 my-content">
             <h2 className="fs-5">Maskapai</h2>
             {/* content Maskapai */}
-            <TableMaskapai />
+            {/* <TableMaskapai /> */}
           </div>
         </div>
       </div>
