@@ -5,24 +5,24 @@ import Logo from "../../../assets/admin-img/undraw_aircraft_re_m05i.svg";
 import { useNavigate } from "react-router-dom";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllAirline } from "../../../redux/actions/airlineActions";
+import { getListAirline } from "../../../redux/actions/airlineActions";
 
 // // import CardList from '../components/ListCard'
 // import {getListAirline, deleteAirline, suspend} from '../redux/actions/airline'
 // import Swal from 'sweetalert2'
 // import Navbar from '../components/Navbar'
 
-function Maskapai() {
+export default function Maskapai() {
   const navigate = useNavigate();
 
   const dispatch = useDispatch();
 
   const airline = useSelector((state) => {
-    return state;
+    return state.listAirline;
   });
   console.log(airline);
   useEffect(() => {
-    dispatch(getAllAirline());
+    dispatch(getListAirline());
   }, [dispatch]);
 
   return (
@@ -131,4 +131,4 @@ function Maskapai() {
   );
 }
 
-export default Maskapai;
+

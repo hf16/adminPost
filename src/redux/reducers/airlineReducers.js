@@ -1,15 +1,15 @@
-import { GET_ALL_AIRLINE } from "../types";
+import { GET_AIRLINE_SUCCESS } from "../types";
 
 const initialState = {
-  airline: [],
+  data: [],
 };
 
 const airlineReducer = (state = initialState, action) => {
   switch (action.type) {
-    case GET_ALL_AIRLINE:
+    case GET_AIRLINE_SUCCESS:
       return {
         ...state,
-        airline: action.payload,
+        data: action.payload.data,
       };
     default:
       return state;

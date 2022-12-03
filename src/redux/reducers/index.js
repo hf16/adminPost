@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
-import airlineReducers from "./airlineReducers";
+import listAirlineReducer from "./airlineReducers";
 
 export default combineReducers({
-  airline: airlineReducers,
+  listAirline: listAirlineReducer,
 });
