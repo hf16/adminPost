@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import LogoAdmin from "../../../assets/admin-img/undraw_metrics_re_6g90.svg";
-import "../../../assets/css/styleku.css";
+import "../../../assets/css/styleAdmin.css";
 import Logo from "../../../assets/admin-img/undraw_aircraft_re_m05i.svg";
 import TableAir from "./Table";
 

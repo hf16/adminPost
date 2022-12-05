@@ -1,10 +1,9 @@
 import LogoAdmin from "../../../assets/admin-img/undraw_metrics_re_6g90.svg";
-import "../../../assets/css/styleku.css";
 import Logo from "../../../assets/admin-img/undraw_aircraft_re_m05i.svg";
 import TableMaskapai from "../maskapai/Ant";
 import { useNavigate } from "react-router-dom";
 import React from "react";
-
+import "../../../assets/css/styleAdmin.css";
 // // import CardList from '../components/ListCard'
 // import {getListAirline, deleteAirline, suspend} from '../redux/actions/airline'
 // import Swal from 'sweetalert2'
@@ -68,7 +67,7 @@ export default function Maskapai() {
           </ul>
         </div>
         <div className="content">
-          <nav className="navbar navbar-expand-lg bg-light">
+          <nav className="navbar navbar-expand-lg bg-white">
             <div className="container">
               <div className="d-flex justify-content-between d-block">
                 <img
@@ -119,7 +118,6 @@ export default function Maskapai() {
             </div>
           </nav>
           <div className="dashboard-content px-3 pt-4 my-content">
-            <h2 className="fs-5">Maskapai</h2>
             <TableMaskapai />
           </div>
         </div>

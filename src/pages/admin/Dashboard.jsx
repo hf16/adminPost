@@ -3,9 +3,20 @@ import LogoAdmin from "../../assets/admin-img/undraw_metrics_re_6g90.svg";
 import "../../assets/css/styleku.css";
 import Logo from "../../assets/admin-img/undraw_aircraft_re_m05i.svg";
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { getListAirline } from "../../redux/actions/airlineActions";
 
 function Dahsboard() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const airline = useSelector((state) => {
+    return state.listAirline.data;
+  });
+  console.log(airline);
+  useEffect(() => {
+    dispatch(getListAirline());
+  }, [dispatch]);
 
   return (
     <React.Fragment>
@@ -105,12 +116,14 @@ function Dahsboard() {
                     <div className="row">
                       <div className="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start">
                         <div className="mb-2">
-                          <i className="fal fa-bars"></i>
+                          <img src={Logo} alt="maskapai" width="40px" />
                         </div>
                       </div>
                       <div className="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
                         <h6 className="text-muted font-semibold">Maskapai</h6>
-                        <h6 className="font-extrabold mb-0">36</h6>
+                        <h6 className="font-extrabold mb-0">
+                          {airline?.length}
+                        </h6>
                       </div>
                     </div>
                   </div>
