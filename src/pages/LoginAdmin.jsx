@@ -57,6 +57,7 @@ function Login() {
                             onChange={(e) =>
                               setForm({ ...form, email: e.target.value })
                             }
+                            required
                           />
                         </div>
 
@@ -70,6 +71,7 @@ function Login() {
                             onChange={(e) =>
                               setForm({ ...form, password: e.target.value })
                             }
+                            required
                           />
                           <h6 className="err">{errors}</h6>
                           {/* {errors.length > 0 && (

@@ -96,7 +96,7 @@ function Register() {
                             id="confirm_password"
                             name="confirm_password"
                             class="form-control input-login"
-                            placeholder="confirm_password"
+                            placeholder="Confirm Password"
                             onChange={(e) =>
                               setForm({
                                 ...form,

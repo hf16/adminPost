@@ -31,9 +31,7 @@ export const forgot = async (data, setErrors) => {
     );
     return true;
   } catch (error) {
-    console.log(data);
-
-    throw error;
+    setErrors(error.response.data.message);
   }
 };
 
@@ -45,18 +43,6 @@ export const reset = async (token, data, setErrors) => {
     );
     return true;
   } catch (error) {
-    // if (error.response) {
-    //   if (Array.isArray(error.response.data.error)) {
-    //     setErrors(error.response.data.error);
-    //   } else {
-    //     setErrors([{ msg: error.response.data.error }]);
-    //   }
-    // } else {
-    //   setErrors([{ msg: error.message }]);
-    // }
-
-    // return false;
-
-    throw error;
+    setErrors(error.response.data.message);
   }
 };

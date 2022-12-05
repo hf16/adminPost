@@ -9,6 +9,7 @@ import Dahsboard from "../pages/admin/Dashboard";
 import Maskapai from "../pages/admin/maskapai/Maskapai";
 import Airport from "../pages/admin/airport/Airport";
 import LoginAdmin from "../pages/LoginAdmin";
+import CreateMaskapai from "../pages/admin/maskapai/CreateMaskapai";
 
 function PrivateRoute({ children }) {
   const token = localStorage.getItem("token");
@@ -107,6 +108,7 @@ export default function router() {
             </PublicRoute>
           }
         />
+        <Route path="/createmaskapai" element={<CreateMaskapai />} />
       </Routes>
     </BrowserRouter>
   );

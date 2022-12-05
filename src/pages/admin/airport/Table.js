@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import "../../../assets/css/styleku.css";
 import { Row, Space, Table } from "antd";
 import { Container } from "react-bootstrap";
 import axios from "axios";
