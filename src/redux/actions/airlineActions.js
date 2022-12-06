@@ -24,16 +24,19 @@ export const getListAirline = () => async (dispatch) => {
   }
 };
 
+
 // create (post)
-export const createListAirline = () => async (body, setErrors) => {
+export const createAirline = async (body, setErrors) => {
   try {
-    const token = localStorage.getItem("token");
-    await axios.post(`${process.env.REACT_APP_API_URL}/airlines`, body, {
+    const token = localStorage.getItem("token")
+    await axios.post(`${process.env.REACT_APP_API_URL}/airlines`, body, 
+    {
       headers: {
-        Authorization: token,
+        Authorization: `${token}`,
       },
     });
     return true;
+
   } catch (error) {
     setErrors(error.response.data.message);
   }

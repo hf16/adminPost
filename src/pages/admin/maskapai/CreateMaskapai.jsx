@@ -4,7 +4,7 @@ import Logo from "../../../assets/admin-img/undraw_aircraft_re_m05i.svg";
 import { useNavigate } from "react-router-dom";
 import "../../../assets/css/styleAdmin.css";
 import { useState } from "react";
-import { createListAirline } from "../../../redux/actions/airlineActions";
+import { createAirline } from "../../../redux/actions/airlineActions";
 
 import Swal from "sweetalert2";
 
@@ -18,22 +18,12 @@ function CreateMaskapai() {
   // handle create
   const onSubmit = async (e) => {
     e.preventDefault();
-    if (name === "") {
-      alert("Nama Maskapai Harap DI isi");
-      return;
-    }
-    if (phone === "") {
-      alert("ada yang salah");
-      return;
-    }
-    if (name !== "" && phone !== "") {
-      const formData = new FormData();
-      formData.append("name", name);
-      formData.append("phone", phone);
-      setError([]);
-      setIsLoading();
-
-      const createAirlineStatus = await createListAirline(formData, setError);
+    const body = {
+      name ,
+      phone ,
+  };
+      
+      const createAirlineStatus = await createAirline(body, setError);
 
       if (createAirlineStatus) {
         Swal.fire({
@@ -43,8 +33,8 @@ function CreateMaskapai() {
         });
         return navigate("/maskapai");
       }
-      setIsLoading(false);
-    }
+    
+
   };
 
   return (
@@ -189,21 +179,6 @@ function CreateMaskapai() {
                       <br />
                     </div>
                     <div className="text-end">
-                      {isLoading ? (
-                        <button
-                          className="btn btn-success btn-lg- ms-2"
-                          type="button"
-                          disabled
-                        >
-                          <span
-                            className="spinner-border spinner-border-sm"
-                            role="status"
-                            aria-hidden="true"
-                          >
-                            Loading...
-                          </span>
-                        </button>
-                      ) : (
                         <React.Fragment>
                           <button
                             className="btn btn-success btn-sm"
@@ -212,7 +187,6 @@ function CreateMaskapai() {
                             Submit
                           </button>
                         </React.Fragment>
-                      )}
                     </div>
                   </div>
                 </form>
